@@ -1,0 +1,7 @@
+# Ignore backup script with token
+# Token should be passed as argument: ./backup.sh ghp_your_token
+
+node_modules/
+.env
+*.log
+.DS_Store
