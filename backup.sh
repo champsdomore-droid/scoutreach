@@ -8,25 +8,25 @@ WORKSPACE_DIR="/root/.openclaw/workspace"
 
 cd "$WORKSPACE_DIR" || exit 1
 
-# Initialize git if not a repo
-if [ ! -d ".git" ]; then
-    git init
-    git config user.email "scott@example.com"
-    git config user.name "Scott"
-    git remote add origin "https://champsdomore-droid:$GIT_TOKEN@github.com/$REPO.git"
-    # Create initial commit if needed
-    git add -A
-    git commit -m "Initial workspace backup" 2>/dev/null || true
-    git branch -M main
-    git push -u origin main 2>/dev/null || true
-else
-    git config user.email "scott@example.com"
-    git config user.name "Scott"
-    git remote set-url origin "https://champsdomore-droid:$GIT_TOKEN@github.com/$REPO.git"
-    git pull origin $BRANCH --rebase 2>/dev/null || true
-    git add -A
-    git commit -m "Workspace backup - $(date '+%Y-%m-%d %H:%M')" 2>/dev/null || echo "No changes to commit"
-    git push origin $BRANCH
-fi
+# Fix git ownership
+git config --global --add safe.directory "$WORKSPACE_DIR"
+
+git config user.email "scott@example.com"
+git config user.name "Scott"
+git remote set-url origin "https://champsdomore-droid:$GIT_TOKEN@github.com/$REPO.git"
+
+# Rename branch to main
+git branch -M main 2>/dev/null || true
+
+# Pull latest, then push
+git pull origin $BRANCH --rebase 2>/dev/null || true
+
+# Add files (exclude git repos)
+git add -A
+git reset soccer-recruiting 2>/dev/null || true
+
+git commit -m "Workspace backup - $(date '+%Y-%m-%d %H:%M')" 2>/dev/null || echo "No changes to commit"
+
+git push origin $BRANCH 2>/dev/null || git push -u origin $BRANCH
 
 echo "✅ Backup complete - $(date '+%Y-%m-%d %H:%M')"
