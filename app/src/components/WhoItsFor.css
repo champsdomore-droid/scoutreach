@@ -1,0 +1,35 @@
+.who-its-for {
+  padding: 60px 0;
+  background: #F8FAFC;
+}
+
+.audience-list {
+  list-style: none;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.audience-item {
+  font-size: 20px;
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #1a1a1a;
+}
+
+.checkmark {
+  color: #0EA5E9;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .who-its-for {
+    padding: 50px 0;
+  }
+
+  .audience-item {
+    font-size: 18px;
+  }
+}

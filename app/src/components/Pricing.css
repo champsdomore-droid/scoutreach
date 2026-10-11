@@ -1,0 +1,129 @@
+.pricing {
+  padding: 80px 0;
+  background: white;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  background: white;
+  border: 2px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 40px 32px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-card.highlighted {
+  border-color: #0EA5E9;
+  box-shadow: 0 8px 24px rgba(14, 165, 233, 0.15);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
+  color: white;
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tier-name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+}
+
+.price-container {
+  margin-bottom: 32px;
+}
+
+.price {
+  font-size: 48px;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.period {
+  font-size: 18px;
+  color: #64748B;
+  margin-left: 4px;
+}
+
+.features-list {
+  list-style: none;
+  margin-bottom: 32px;
+}
+
+.feature-item {
+  padding: 12px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  color: #1a1a1a;
+  line-height: 1.5;
+}
+
+.feature-item .checkmark {
+  color: #0EA5E9;
+  font-size: 18px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.pricing-cta {
+  width: 100%;
+  padding: 14px 24px;
+  border: 2px solid #0EA5E9;
+  background: white;
+  color: #0EA5E9;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pricing-cta:hover {
+  background: #F0F9FF;
+}
+
+.pricing-cta.highlighted {
+  background: #0EA5E9;
+  color: white;
+}
+
+.pricing-cta.highlighted:hover {
+  background: #0284C7;
+}
+
+@media (max-width: 768px) {
+  .pricing {
+    padding: 60px 0;
+  }
+
+  .pricing-grid {
+    gap: 24px;
+  }
+
+  .pricing-card {
+    padding: 32px 24px;
+  }
+}
